@@ -1,8 +1,23 @@
 package components;
 
-public record Addition(String name) {
+import java.util.ArrayList;
+
+public class Addition implements HaveClarify {
+    ArrayList<Clarify> clarifies = new ArrayList<>();
+    String name;
+
+    public Addition(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return this.name;
+        if (clarifies.isEmpty()) return name;
+        return name + HaveClarify.getClarifiesString(clarifies);
     }
+
+    public void addClarify(Clarify clarify) {
+        clarifies.add(clarify);
+    }
+
 }

@@ -1,16 +1,19 @@
 package characters;
 
 import actions.Action;
-import actions.Open;
-import actions.RushTo;
-import utils.Gender;
+import components.Addition;
+import components.Clarify;
+import components.Gender;
+import components.HaveClarify;
 
 import java.util.ArrayList;
 
-public class Person {
+public class Person implements HaveClarify {
     private final Gender gender;
     private final String name;
+
     private final ArrayList<Action> sub_actions = new ArrayList<>();
+    private final ArrayList<Clarify> clarifies = new ArrayList<>();
 
     public Person(Gender gender) {
         this.gender = gender;
@@ -22,15 +25,29 @@ public class Person {
         this.name   = name;
     }
 
-    public void perform(boolean reversed, Action... actions) {
-        if (reversed)
-            System.out.printf("%s %s\n", getConcatActions(actions), this);
-        else
-            System.out.printf("%s %s\n", this, getConcatActions(actions));
+    public void perform(Action... actions) {
+        System.out.printf("%s %s\n", this, getConcatActions(actions));
+    }
+
+    public void perform_reversed(Action... actions) {
+        System.out.printf("%s %s\n", getConcatActions(actions), this);
+    }
+
+    public void perform_on(Action... actions) {
+        System.out.printf("%s %s %s\n", this, gender.was, getConcatActions(actions));
     }
 
     public void addSubAction(Action action) {
         sub_actions.add(action);
+    }
+
+    @Override
+    public void addClarify(Clarify clarify) {
+        clarifies.add(clarify);
+    }
+
+    public void getState() {
+        System.out.printf("%s %s %s\n", this, gender.was, HaveClarify.getClarifiesString(clarifies));
     }
 
     public String getConcatActions(Action... actions) {
@@ -51,5 +68,9 @@ public class Person {
             result.append(sub_actions.get(i));
         }
         return result.toString();
+    }
+
+    public Addition toAddition() {
+        return new Addition(name);
     }
 }

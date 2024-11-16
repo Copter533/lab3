@@ -1,9 +1,6 @@
 package characters;
 
-import actions.Action;
-import utils.Gender;
-
-import java.util.ArrayList;
+import components.Gender;
 
 public class He extends Person {
     public He() {

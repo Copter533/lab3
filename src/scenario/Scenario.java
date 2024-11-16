@@ -3,10 +3,10 @@ package scenario;
 abstract public class Scenario {
     abstract String getName();
 
-    void begin() {
-        System.out.printf(" [X] ===== Ситуация \"%s\" ===== [X] \n\n", getName());
+    final void begin() {
+        System.out.printf("\n [S] ===== Ситуация \"%s\" ===== [S] \n\n", getName());
         execute();
-        System.out.print("\n [X] ===== Конец ситуации ===== [X] \n");
+        System.out.print("\n\n\n\n\n");
     }
 
     abstract void execute();

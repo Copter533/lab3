@@ -1,6 +1,6 @@
 package characters;
 
-import utils.Gender;
+import components.Gender;
 
 public class Lemons extends Person {
     public Lemons() {
