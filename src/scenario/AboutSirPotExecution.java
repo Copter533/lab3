@@ -31,7 +31,9 @@ public class AboutSirPotExecution extends Scenario {
         order.addClarify(new RightAfter(execution));
 
         prince.addClarify(new Satisfied());
-        prince.getState();
+        try {
+            prince.getState();
+        } catch (NoStateException ignored) {}
         prince.perform(order);
     }
 }

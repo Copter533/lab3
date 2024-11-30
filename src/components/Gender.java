@@ -1,5 +1,7 @@
 package components;
 
+import java.util.Random;
+
 public enum Gender {
     MALE  ("он",  "который", "был"),
     FEMALE("она", "которая", "была"),
@@ -13,5 +15,14 @@ public enum Gender {
         this.who  = who;
         this.that = that;
         this.was  = was;
+    }
+
+    public static Gender random(Gender unchanged) {
+        return switch (new Random().nextInt() % 10) {
+            case 0  -> MALE;
+            case 1  -> FEMALE;
+            case 2  -> THEY;
+            default -> unchanged;
+        };
     }
 }

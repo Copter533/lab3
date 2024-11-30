@@ -22,15 +22,15 @@ public class AboutLemonsAndDoor extends Scenario {
         Addition door = new Addition("дверь");
         Addition jail = new Addition("тюрьма");
 
-        RushTo rush_to = new RushTo(door);
-        Guard guard = new Guard(jail);
+        Action rush_to = new RushTo(door);
+        Action guard = new Guard(jail);
 
-        Banging banging = new Banging(door);
+        Action banging = new Banging(door);
         banging.addClarify(new WithAllMight());
         banging.addClarify(new WithOwnFists());
         banging.setPrefix("стал");
 
-        Open open = new Open(door);
+        Action open = new Open(door);
         open.setPrefix("пока ему не");
         open.setOmitted(true);
 
@@ -38,6 +38,6 @@ public class AboutLemonsAndDoor extends Scenario {
         he.perform(rush_to, banging);
 
         lemons.addSubAction(guard);
-        lemons.perform_reversed(open);
+        lemons.performReversed(open);
     }
 }

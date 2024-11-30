@@ -16,9 +16,9 @@ public class AboutCavalier extends Scenario {
 
         Addition castle = new Addition("замок");
 
-        GetTo get_to = new GetTo(castle);
+        Action get_to = new GetTo(castle);
         get_to.setPrefix("немедлено");
 
-        cavalier.perform_on(get_to);
+        cavalier.performOn(get_to);
     }
 }

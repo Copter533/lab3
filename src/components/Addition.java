@@ -1,6 +1,7 @@
 package components;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Addition implements HaveClarify {
     ArrayList<Clarify> clarifies = new ArrayList<>();
@@ -20,4 +21,14 @@ public class Addition implements HaveClarify {
         clarifies.add(clarify);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        return Objects.equals(name, ((Addition) o).name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clarifies, name);
+    }
 }

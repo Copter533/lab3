@@ -2,6 +2,7 @@ package scenario;
 // Он рассказал принцу все, что узнал от синьора Горошка, и добился прощения.
 
 import actions.Achieve;
+import actions.Action;
 import actions.TellTo;
 import characters.He;
 import characters.Person;
@@ -25,8 +26,8 @@ public class AboutMercy extends Scenario {
         Addition everything = new Addition("всё");
         everything.addClarify(new KnewFrom(sirPot));
 
-        TellTo tell_to = new TellTo(everything, prince);
-        Achieve achieve = new Achieve(mercy);
+        Action tell_to = new TellTo(everything, prince);
+        Action achieve = new Achieve(mercy);
 
         he.perform(tell_to, achieve);
     }

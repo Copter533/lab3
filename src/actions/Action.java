@@ -14,12 +14,8 @@ public class Action implements HaveClarify, HaveAddition {
     protected String suffix = "";
 
     protected final ArrayList<Addition> additions = new ArrayList<>();
-    protected final ArrayList<Clarify> clarifies = new ArrayList<>();
+    protected final ArrayList<Clarify>  clarifies = new ArrayList<>();
     protected boolean omitted = false;
-
-    public Action(String desc) {
-        this.desc = desc;
-    }
 
     public Action(String desc, Addition... additions) {
         this.desc = desc;
