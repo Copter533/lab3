@@ -7,21 +7,21 @@ import actions.*;
 import characters.*;
 import components.*;
 
-public class AboutSirPotExecution extends Scenario {
+public class AboutSirPotExecution extends ScenarioAbstract {
     @Override String getName() { return "Про казнь синьора Горшка"; }
 
     public void execute() {
         // Объекты ситуации
-        Person prince  = new PrinceLemon();
-        Person lemons  = new Lemons();
-        Person sir_pot = new SirPot();
-        Person kum     = new PumpkinKum();
+        Person prince = new PrinceLemon();
+        Person lemons = new Lemons();
+        Person sirPot = new SirPot();
+        Person kum    = new PumpkinKum();
 
         Addition house = new Addition("домик");
         house.addClarify(new Owner(kum));
 
         Addition forest = new Addition("лес");
-        Addition execution = new Execute(sir_pot).toAddition();
+        Addition execution = new Execute(sirPot).toAddition();
 
         Action goTo    = new GoTo(forest);
         Action getWhat = new GetWhat(house);
@@ -34,6 +34,6 @@ public class AboutSirPotExecution extends Scenario {
         try {
             prince.getState();
         } catch (NoStateException ignored) {}
-        prince.perform(order);
+        prince.performNormal(order);
     }
 }

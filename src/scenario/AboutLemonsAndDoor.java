@@ -11,7 +11,7 @@ import components.WithAllMight;
 import components.WithOwnFists;
 
 // Конкретный сценарий
-public class AboutLemonsAndDoor extends Scenario {
+public class AboutLemonsAndDoor extends ScenarioAbstract {
     @Override String getName() { return "Про лемончиков и дверь"; }
 
     public void execute() {
@@ -22,7 +22,7 @@ public class AboutLemonsAndDoor extends Scenario {
         Addition door = new Addition("дверь");
         Addition jail = new Addition("тюрьма");
 
-        Action rush_to = new RushTo(door);
+        Action rushTo = new RushTo(door);
         Action guard = new Guard(jail);
 
         Action banging = new Banging(door);
@@ -35,7 +35,7 @@ public class AboutLemonsAndDoor extends Scenario {
         open.setOmitted(true);
 
         // Сама ситуация
-        he.perform(rush_to, banging);
+        he.performNormal(rushTo, banging);
 
         lemons.addSubAction(guard);
         lemons.performReversed(open);

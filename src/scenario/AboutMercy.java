@@ -12,7 +12,7 @@ import components.Addition;
 import components.KnewFrom;
 
 // Конкретный сценарий
-public class AboutMercy extends Scenario {
+public class AboutMercy extends ScenarioAbstract {
     @Override String getName() { return "Про прощение"; }
 
     public void execute() {
@@ -26,9 +26,9 @@ public class AboutMercy extends Scenario {
         Addition everything = new Addition("всё");
         everything.addClarify(new KnewFrom(sirPot));
 
-        Action tell_to = new TellTo(everything, prince);
+        Action tellTo = new TellTo(everything, prince);
         Action achieve = new Achieve(mercy);
 
-        he.perform(tell_to, achieve);
+        he.performNormal(tellTo, achieve);
     }
 }

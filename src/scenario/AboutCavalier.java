@@ -7,7 +7,7 @@ import characters.Person;
 import components.Addition;
 
 // Конкретный сценарий
-public class AboutCavalier extends Scenario {
+public class AboutCavalier extends ScenarioAbstract {
     @Override String getName() { return "Про кавалера в замке"; }
 
     public void execute() {
@@ -16,9 +16,9 @@ public class AboutCavalier extends Scenario {
 
         Addition castle = new Addition("замок");
 
-        Action get_to = new GetTo(castle);
-        get_to.setPrefix("немедлено");
+        Action getTo = new GetTo(castle);
+        getTo.setPrefix("немедлено");
 
-        cavalier.performOn(get_to);
+        cavalier.performOn(getTo);
     }
 }

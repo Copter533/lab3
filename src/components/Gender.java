@@ -1,5 +1,7 @@
 package components;
 
+import scenario.Scenario;
+
 import java.util.Random;
 
 public enum Gender {
@@ -18,6 +20,7 @@ public enum Gender {
     }
 
     public static Gender random(Gender unchanged) {
+        if (!Scenario.isCurrentRandom) return unchanged;
         return switch (new Random().nextInt() % 10) {
             case 0  -> MALE;
             case 1  -> FEMALE;

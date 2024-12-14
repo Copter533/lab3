@@ -4,6 +4,6 @@ import components.Gender;
 
 public class Prince extends Person {
     public Prince() {
-        super(Gender.MALE, "принцу");
+        super(Gender.MALE, "принц");
     }
 }
