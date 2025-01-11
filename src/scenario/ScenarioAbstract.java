@@ -1,5 +1,7 @@
 package scenario;
 
+import java.util.Objects;
+
 abstract public class ScenarioAbstract {
     abstract String getName();
 
@@ -10,4 +12,16 @@ abstract public class ScenarioAbstract {
     }
 
     abstract void execute();
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ScenarioAbstract sce)
+            return sce.getName().equals(getName());
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
+    }
 }

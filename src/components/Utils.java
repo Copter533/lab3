@@ -41,9 +41,9 @@ public interface Utils {
             case 0 -> new NextMorning();
             case 1 -> new Satisfied();
             case 2 -> new WithAllMight();
-            case 3 -> new WithOwnFists();
-            case 4 -> new KnewFrom(randomChoice(characters));
-            case 5 -> new Owner(randomChoice(characters));
+            case 3, 4, 5 -> new WithOwnFists();
+            // case 4 -> new KnewFrom(randomChoice(characters));
+            // case 5 -> new Owner(randomChoice(characters));
             case 6 -> new RightAfter(randomChoice(additions));
             default -> throw new RuntimeException();
         };

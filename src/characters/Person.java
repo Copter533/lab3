@@ -7,6 +7,7 @@ import scenario.Scenario;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Person implements HaveClarify {
     private final Gender gender;
@@ -125,5 +126,22 @@ public class Person implements HaveClarify {
 
     public Addition toAddition() {
         return new Addition(name);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Person p)
+            return
+                    p.name.equals(name) &&
+                    p.gender.equals(gender) &&
+                    p.clarifies.equals(clarifies) &&
+                    p.subActions.equals(subActions);
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gender, name, clarifies, subActions);
     }
 }

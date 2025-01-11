@@ -19,7 +19,7 @@ public class Scenario {
         System.out.print("\n\n\n\n\n");
     }
 
-    static class Builder {
+    public static class Builder {
         String name;
         private Runnable action;
         private boolean randomness = true;

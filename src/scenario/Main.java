@@ -2,8 +2,7 @@ package scenario;
 
 import actions.*;
 import characters.*;
-import components.Addition;
-import components.Utils;
+import components.*;
 
 
 import java.util.ArrayList;

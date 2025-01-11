@@ -7,6 +7,7 @@ import components.HaveClarify;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Action implements HaveClarify, HaveAddition {
     protected final String desc;
@@ -80,5 +81,22 @@ public class Action implements HaveClarify, HaveAddition {
 
     public void addAddition(Addition add) {
         additions.add(add);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Action a)
+            return
+                    a.desc.equals(desc) &&
+                    a.prefix.equals(prefix) &&
+                    a.suffix.equals(suffix) &&
+                    a.additions.equals(additions) &&
+                    a.clarifies.equals(clarifies);
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(desc, prefix, suffix, additions, clarifies, omitted);
     }
 }
